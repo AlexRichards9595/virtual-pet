@@ -24,43 +24,24 @@ public class VirtualPet {
 		return sleep;
 	}
 
-	public int tickHunger(int incomingHunger) {
-		hunger = incomingHunger - 3;
-		return hunger;
+	public void feed() {
+		hunger += 5;
+	}
+
+	public void drink() {
+		thirst += 10;
+	}
+
+	public void sleep() {
+		sleep += 15;
 
 	}
 
-	public int tickThirst(int incomingThirst) {
-		thirst = incomingThirst - 7;
-		return thirst;
-	}
-
-	public int tickSleep(int incomingSleep) {
-		sleep = sleep - 10;
-		// sleep = incomingSleep - 10;
-		return sleep;
-	}
-
-	public int feed(int incomingHunger) {
-		hunger = incomingHunger + 5;
-		return hunger;
-	}
-
-	public int drink(int incomingThirst) {
-		thirst = incomingThirst + 10;
-		return thirst;
-	}
-
-	public int sleep(int incomingSleep) {
-		sleep = incomingSleep + 15;
-		return sleep;
-	}
-
-	public boolean isHeDead(int incomingHunger, int incomingThirst, int incomingSleep) {
-		if (incomingHunger > 0 && incomingThirst > 0 && incomingSleep > 0) {
-			return true;
+	public boolean isHeDead() {
+		if (hunger > 0 && thirst > 0 && sleep > 0) {
+			return false;
 		}
-		return false;
+		return true;
 	}
 
 	public boolean isItQuit(String string) {
@@ -69,10 +50,11 @@ public class VirtualPet {
 		}
 		return true;
 	}
-	
-//	public void tick() {
-//		sleep -= 10;
-//		hunger -= 10;
-//	}
+
+	public void tick() {
+		hunger -= 2;
+		thirst -= 4;
+		sleep -= 5;
+	}
 
 }

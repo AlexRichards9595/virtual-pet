@@ -36,39 +36,14 @@ public class VirtualPetTest {
 	}
 
 	@Test
-	public void shouldSubstractHunger() {
-
+	public void shouldSubstratVitals() {
 		VirtualPet underTest = new VirtualPet();
 
 		int hunger = underTest.getHunger();
-		underTest.tickHunger(hunger);
+		underTest.tick();
 		int newHunger = underTest.getHunger();
 
 		Assert.assertEquals(hunger - 3, newHunger);
-	}
-
-	@Test
-	public void shouldSubstractThirst() {
-
-		VirtualPet underTest = new VirtualPet();
-
-		int thirst = underTest.getThirst();
-		underTest.tickThirst(thirst);
-		int newThirst = underTest.getThirst();
-
-		Assert.assertEquals(thirst - 7, newThirst);
-	}
-
-	@Test
-	public void shouldSubstractSleep() {
-
-		VirtualPet underTest = new VirtualPet();
-
-		int sleep = underTest.getSleep();
-		underTest.tickSleep(sleep);
-		int newSleep = underTest.getSleep();
-
-		Assert.assertEquals(sleep - 10, newSleep);
 	}
 
 	@Test
@@ -77,7 +52,7 @@ public class VirtualPetTest {
 		VirtualPet underTest = new VirtualPet();
 
 		int hunger = underTest.getHunger();
-		underTest.feed(hunger);
+		underTest.feed();
 		int newHunger = underTest.getHunger();
 
 		Assert.assertEquals(hunger + 5, newHunger);
@@ -89,7 +64,7 @@ public class VirtualPetTest {
 		VirtualPet underTest = new VirtualPet();
 
 		int thirst = underTest.getThirst();
-		underTest.drink(thirst);
+		underTest.drink();
 		int newThirst = underTest.getThirst();
 
 		Assert.assertEquals(thirst + 10, newThirst);
@@ -101,7 +76,7 @@ public class VirtualPetTest {
 		VirtualPet underTest = new VirtualPet();
 
 		int sleep = underTest.getSleep();
-		underTest.sleep(sleep);
+		underTest.sleep();
 		int newSleep = underTest.getSleep();
 
 		Assert.assertEquals(sleep + 15, newSleep);
@@ -115,7 +90,7 @@ public class VirtualPetTest {
 		int hunger = underTest.getHunger();
 		int thirst = underTest.getThirst();
 		int sleep = underTest.getSleep();
-		boolean check = underTest.isHeDead(hunger, thirst, sleep);
+		boolean check = underTest.isHeDead();
 
 		Assert.assertTrue(check);
 	}
@@ -123,12 +98,11 @@ public class VirtualPetTest {
 	@Test
 	public void checkForQuit() {
 		VirtualPet underTest = new VirtualPet();
-		
+
 		boolean check = underTest.isItQuit("quit");
-		
+
 		Assert.assertFalse(check);
 
 	}
-	 
 
 }

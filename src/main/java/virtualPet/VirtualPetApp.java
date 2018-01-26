@@ -9,14 +9,11 @@ public class VirtualPetApp {
 		Scanner input = new Scanner(System.in);
 		VirtualPet myPet = new VirtualPet();
 		String userInput = "";
-		int hunger = myPet.getHunger();
-		int thirst = myPet.getThirst();
-		int sleep = myPet.getSleep();
 
 		System.out.println("Welcome to Digipet!");
 		System.out.println("Your digipet is Steve the Sloth!\n");
 
-		while (myPet.isHeDead(hunger,thirst,sleep) && myPet.isItQuit(userInput)) {
+		while (!myPet.isHeDead() && myPet.isItQuit(userInput)) {
 			System.out.println("Steve the Sloth");
 			System.out.println("Hunger: " + myPet.getHunger());
 			System.out.println("Thirst: " + myPet.getThirst());
@@ -31,21 +28,21 @@ public class VirtualPetApp {
 			userInput = input.nextLine();
 
 			if (userInput.equals("1")) {
-				hunger = myPet.feed(hunger);
+				myPet.feed();
 			}
 			if (userInput.equals("2")) {
-				thirst = myPet.drink(thirst);
+				myPet.drink();
 			}
 			if (userInput.equals("3")) {
-				sleep = myPet.sleep(sleep);
+				myPet.sleep();
 			}
 
-			hunger = myPet.tickHunger(hunger);
-			thirst = myPet.tickThirst(thirst);
-			sleep = myPet.tickSleep(sleep);
+			myPet.tick();
 
 		}
 		System.out.println("Game over. Goodbye...");
+
+		input.close();
 
 	}
 
