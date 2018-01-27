@@ -12,7 +12,7 @@ public class VirtualPetTest {
 
 		int hunger = underTest.getHunger();
 
-		Assert.assertEquals(50, hunger);
+		Assert.assertEquals(20, hunger);
 	}
 
 	@Test
@@ -22,7 +22,7 @@ public class VirtualPetTest {
 
 		int thirst = underTest.getThirst();
 
-		Assert.assertEquals(50, thirst);
+		Assert.assertEquals(20, thirst);
 	}
 
 	@Test
@@ -32,22 +32,22 @@ public class VirtualPetTest {
 
 		int sleep = underTest.getSleep();
 
-		Assert.assertEquals(50, sleep);
+		Assert.assertEquals(20, sleep);
 	}
 
 	@Test
-	public void shouldSubstratVitals() {
+	public void shouldAddNeeds() {
 		VirtualPet underTest = new VirtualPet();
 
 		int hunger = underTest.getHunger();
 		underTest.tick();
 		int newHunger = underTest.getHunger();
 
-		Assert.assertEquals(hunger - 3, newHunger);
+		Assert.assertEquals(hunger + 2, newHunger);
 	}
 
 	@Test
-	public void shouldAddHunger() {
+	public void shouldSubtractHunger() {
 
 		VirtualPet underTest = new VirtualPet();
 
@@ -55,11 +55,11 @@ public class VirtualPetTest {
 		underTest.feed();
 		int newHunger = underTest.getHunger();
 
-		Assert.assertEquals(hunger + 5, newHunger);
+		Assert.assertEquals(hunger - 8, newHunger);
 	}
 
 	@Test
-	public void shouldAddThirst() {
+	public void shouldSubtractThirst() {
 
 		VirtualPet underTest = new VirtualPet();
 
@@ -67,11 +67,11 @@ public class VirtualPetTest {
 		underTest.drink();
 		int newThirst = underTest.getThirst();
 
-		Assert.assertEquals(thirst + 10, newThirst);
+		Assert.assertEquals(thirst - 12, newThirst);
 	}
 
 	@Test
-	public void shouldAddSleep() {
+	public void shouldSubtractSleep() {
 
 		VirtualPet underTest = new VirtualPet();
 
@@ -79,7 +79,7 @@ public class VirtualPetTest {
 		underTest.sleep();
 		int newSleep = underTest.getSleep();
 
-		Assert.assertEquals(sleep + 15, newSleep);
+		Assert.assertEquals(sleep - 15, newSleep);
 	}
 
 	@Test
@@ -92,7 +92,7 @@ public class VirtualPetTest {
 		int sleep = underTest.getSleep();
 		boolean check = underTest.isHeDead();
 
-		Assert.assertTrue(check);
+		Assert.assertFalse(check);
 	}
 
 	@Test
