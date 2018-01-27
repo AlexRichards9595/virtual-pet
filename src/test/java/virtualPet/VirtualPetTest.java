@@ -104,8 +104,5 @@ public class VirtualPetTest {
 		Assert.assertFalse(check);
 
 	}
-	
-	
-	
 
 }
