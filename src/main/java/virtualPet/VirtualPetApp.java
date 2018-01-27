@@ -29,12 +29,15 @@ public class VirtualPetApp {
 
 			if (userInput.equals("1")) {
 				myPet.feed();
+				System.out.println("You fed Steve!\n");
 			}
 			if (userInput.equals("2")) {
 				myPet.drink();
+				System.out.println("You gave Steve some water!\n");
 			}
 			if (userInput.equals("3")) {
 				myPet.sleep();
+				System.out.println("Steve took a nap.\n");
 			}
 
 			myPet.tick();
