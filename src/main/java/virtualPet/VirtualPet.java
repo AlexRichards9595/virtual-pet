@@ -25,15 +25,20 @@ public class VirtualPet {
 	}
 
 	public void feed() {
-		hunger += 5;
+		hunger += 15;
+		thirst -= 2;
+		sleep -= 1;
 	}
 
 	public void drink() {
-		thirst += 10;
+		thirst += 20;
+		sleep +=3;
 	}
 
 	public void sleep() {
-		sleep += 15;
+		sleep += 25;
+		hunger -= 1;
+		thirst -= 2;
 
 	}
 
